@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
-export default function ScrollVideo({ src, debug }) {
+const ScrollVideo = ({ playbackConst }) => {
   const videoRef = useRef(null);
   const scrollSectionRef = useRef(null);
   const videoDuration = 20;
-  const playbackConst = 200; // Adjust the constant as needed
+  playbackConst = playbackConst || 500; // Adjust the constant as needed
 
   useEffect(() => {
     // Use requestAnimationFrame for smooth playback
@@ -70,4 +70,5 @@ export default function ScrollVideo({ src, debug }) {
       </div>
     </div>
   );
-}
+};
+export default ScrollVideo;

@@ -6,14 +6,14 @@ import Customers from "../page-components/home/Customers";
 import Ownership from "../page-components/home/Ownership";
 import Features from "../page-components/home/Features";
 
-export default function Home() {
+const Home = ({ playbackConst }) => {
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
       <Hero />
-      <ScrollVideo src="/videos/mainsplash.mp4" />
+      <ScrollVideo playbackConst={playbackConst} />
       <Customers />
       <div className="border-b border-solid border-gray-900 max-w-xxx mx-auto my-6" />
       <Ownership />
@@ -25,4 +25,12 @@ export default function Home() {
       />
     </Layout>
   );
-}
+};
+
+Home.getInitialProps = async ({ query }) => {
+  const { playbackConst } = query;
+
+  return { playbackConst };
+};
+
+export default Home;
